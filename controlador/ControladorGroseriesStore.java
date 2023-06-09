@@ -10,7 +10,7 @@ public class ControladorGroseriesStore implements ActionListener{
     GroseriesVista vista;
     Options options;
 
-    public 
+    //public 
 
     
 }
