@@ -7,20 +7,30 @@ public class ModeloCandy {
     private String candyType;
     private String newCandyName;
     private String newCandyType;
-    private String Text;
+    private String text_;
     
     private static ArrayList<ModeloCandy> arrayDulces = new ArrayList<>();
 
-    public ModeloCandy(String candyName2, String candyType2) {
-        
-    }
     
+    public String getText_() {
+        return text_;
+    }
+
+    public void setText_(String text_) {
+        this.text_ = text_;
+    }
     public ModeloCandy() {
     }
 
     public String getNewCandyName() {
         return newCandyName;
     }
+    
+    public ModeloCandy(String candyName2, String candyType2) {
+    this.candyName = candyName2;
+    this.candyType = candyType2;
+    }
+
 
     public void setNewCandyName(String newCandyName) {
         this.newCandyName = newCandyName;
@@ -61,10 +71,7 @@ public class ModeloCandy {
     public  void addCandy(String candyName, String candyType) {
         ModeloCandy n = new ModeloCandy(candyName, candyType);
         arrayDulces.add(n);
-        for (ModeloCandy dulce : arrayDulces) {
-            System.out.println("Nombre: " + dulce.getCandyName());
-            System.out.println("Tipo: " + dulce.getCandyType());
-            }
+        
         }
     
     public  void removeCandy(String candyName, String candyType) {
@@ -102,12 +109,15 @@ public class ModeloCandy {
         }   
     }
 
-    public String listCandies(){
-        int i = 1;
-        for(ModeloCandy dulce: arrayDulces){
-            System.out.println(i + " Nombre del dulce: " + dulce.getCandyName() + ", Tipo de dulce: " + dulce.getCandyType());
-        }
+    public String listCandies() {
+    StringBuilder result = new StringBuilder();  
+    
+    for (int i = 0 ; i < arrayDulces.size()-1 ; i++) { 
+        result.append("Nombre: ").append(arrayDulces.get(i).getCandyName()).append(", Tipo: ").append(arrayDulces.get(i).getCandyType()).append("\n");
     }
+    
+    return result.toString();
+}
 
     public static void searchCandy(String candyName, String candyType){
         ModeloCandy candyFinded = null;
@@ -126,6 +136,8 @@ public class ModeloCandy {
             System.out.println("No se pudo encontrar su dulce o no existe :C");
         }
      }
+
+    
 
 
 
