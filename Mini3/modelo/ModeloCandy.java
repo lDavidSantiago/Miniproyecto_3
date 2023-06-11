@@ -71,6 +71,7 @@ public class ModeloCandy {
     public  void addCandy(String candyName, String candyType) {
         ModeloCandy n = new ModeloCandy(candyName, candyType);
         arrayDulces.add(n);
+        arrayDulces.size();
         
         }
     
@@ -112,8 +113,8 @@ public class ModeloCandy {
     public String listCandies() {
     StringBuilder result = new StringBuilder();  
     
-    for (int i = 0 ; i < arrayDulces.size()-1 ; i++) { 
-        result.append("Nombre: ").append(arrayDulces.get(i).getCandyName()).append(", Tipo: ").append(arrayDulces.get(i).getCandyType()).append("\n");
+    for (ModeloCandy candy : arrayDulces) { 
+        result.append("Nombre: ").append(candy.getCandyName()).append(", Tipo: ").append(candy.getCandyType()).append("\n");
     }
     
     return result.toString();

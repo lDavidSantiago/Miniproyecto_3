@@ -20,25 +20,31 @@ public class Controlador implements ActionListener{
     public Controlador(Vista view, ModeloCandy model) {
         this.view = view;
         this.model = model;
-        this.view.buttonAdd.addActionListener(this);
+
     }
     public void starting(){
         view.start(this);
     }
    
     public void actionPerformed(ActionEvent e) {
-        switch (operations){
-            case ADD:
-            model.setCandyName(view.textField1.getText());
-            model.setCandyType(view.textField2.getText());
-            model.addCandy((view.textField1.getText()),(view.textField2.getText()));
+    switch (operations) {
+        case ADD:
+            String candyName = view.textField1.getText();
+            String candyType = view.textField2.getText();
+
+            model.setCandyName(candyName);
+            model.setCandyType(candyType);
+            model.addCandy(candyName, candyType);
             view.textField3.setText(model.listCandies());
-            case UPDATE:
-            
-            default:
-                break;
-        }
-        
+            break; // Agregar este break
+
+        case UPDATE:
+            // Código para la actualización
+
+        default:
+            break;
     }
+}
+
 }
 
