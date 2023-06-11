@@ -38,7 +38,7 @@ public class Controlador implements ActionListener{
             view.textField3.setText(model.listCandies());
             break; // Agregar este break
 
-        case UPDATE:
+        case UPDATE
             // Código para la actualización
 
         default:
