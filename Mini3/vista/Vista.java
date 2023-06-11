@@ -12,12 +12,13 @@ public class Vista extends JFrame {
     public JTextField textField1;
     public JTextField textField2;
     public JTextField textField3;
+    public JTextField textField4;
     public JButton buttonAdd;
     public JButton buttonEnterSecondPanel;
 
     public Vista() {
         setTitle("Mi Aplicación");
-        setSize(300, 250);
+        setSize(600, 650);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null); // Usamos un diseño nulo para posicionar los componentes manualmente
 
@@ -45,36 +46,32 @@ public class Vista extends JFrame {
         add(label3);
 
         textField3 = new JTextField();
-        textField3.setBounds(90, 100, 150, 25);
+        textField3.setBounds(90, 100, 150, 60);
         add(textField3);
+        
+        JLabel label4 = new JLabel("Campo 4:");
+        label4.setBounds(20, 180, 60, 25);
+        add(label4);
+
+        textField4 = new JTextField();
+        textField4.setBounds(90, 180, 150, 25);
+        add(textField4);
 
         // Botón 1
         buttonAdd = new JButton("Botón 1");
-        buttonAdd.setBounds(40, 140, 100, 30);
+        buttonAdd.setBounds(40, 220, 100, 30);
         add(buttonAdd);
 
         // Botón para entrar al segundo panel
         buttonEnterSecondPanel = new JButton("Segundo Panel");
-        buttonEnterSecondPanel.setBounds(160, 140, 120, 30);
+        buttonEnterSecondPanel.setBounds(160, 220, 120, 30);
         add(buttonEnterSecondPanel);
     }
 
-    public String getCandyName() {
-        return textField1.getText();
-    }
-
-    public String getCandyType() {
-        return textField2.getText();
-    }
-
-    public String getCandyInfo() {
-        return textField3.getText();
-    }
 
     public void start(Controlador controlador) {
         controlador.setOperations(Operations.ADD);
         buttonAdd.addActionListener(controlador);
-        buttonEnterSecondPanel.addActionListener(controlador);
         setTitle("Tienda Dulces");
         setLocationRelativeTo(null);
     }

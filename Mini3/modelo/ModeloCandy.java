@@ -69,8 +69,8 @@ public class ModeloCandy {
     }
 
     public  void addCandy(String candyName, String candyType) {
-        ModeloCandy n = new ModeloCandy(candyName, candyType);
-        arrayDulces.add(n);
+        ModeloCandy dulce = new ModeloCandy(candyName, candyType);
+        arrayDulces.add(dulce);
         
         }
     
@@ -112,14 +112,14 @@ public class ModeloCandy {
     public String listCandies() {
     StringBuilder result = new StringBuilder();  
     
-    for (int i = 0 ; i < arrayDulces.size()-1 ; i++) { 
+    for (int i = 0 ; i < arrayDulces.size() ; i++) { 
         result.append("Nombre: ").append(arrayDulces.get(i).getCandyName()).append(", Tipo: ").append(arrayDulces.get(i).getCandyType()).append("\n");
     }
     
     return result.toString();
 }
 
-    public static void searchCandy(String candyName, String candyType){
+    public String searchCandy(String candyName, String candyType){
         ModeloCandy candyFinded = null;
         int i = 0;
         for(ModeloCandy dulce : arrayDulces){
@@ -130,10 +130,10 @@ public class ModeloCandy {
         i++;
             }
         if(candyFinded !=null){
-            System.out.println("Su dulce es: " + candyFinded.getCandyName() + candyFinded.getCandyType() + "Y esta en la posicion " + i);
+            return "Su dulce es: " + candyFinded.getCandyName() + candyFinded.getCandyType() + "Y esta en la posicion " + i;
         }
         else{
-            System.out.println("No se pudo encontrar su dulce o no existe :C");
+            return "No se pudo encontrar su dulce o no existe :C";
         }
      }
 
