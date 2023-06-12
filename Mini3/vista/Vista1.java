@@ -23,7 +23,7 @@ public class Vista1 extends JFrame {
     public Vista1(){
         setTitle("Dulceria");
         setSize(670, 500);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(null); // Usamos un diseño nulo para posicionar los componentes manualmente
         setResizable(false);
 
