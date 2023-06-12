@@ -2,11 +2,11 @@ package Mini3.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Mini3.modelo.ModeloCandy;
-import Mini3.vista.Vista;
+import Mini3.vista.Vista1;
 
 public class Controlador implements ActionListener{
 
-    private Vista view;
+    private Vista1 view;
     private ModeloCandy model;
     private Operations operations;
     
@@ -17,7 +17,7 @@ public class Controlador implements ActionListener{
         this.operations = operations;
     }
 
-    public Controlador(Vista view, ModeloCandy model) {
+    public Controlador(Vista1 view, ModeloCandy model) {
         this.view = view;
         this.model = model;
     }
