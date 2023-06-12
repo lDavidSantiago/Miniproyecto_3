@@ -89,8 +89,6 @@ public class Vista1 extends JFrame {
         JLabel backGroundPic = new JLabel(new ImageIcon("C:\\Cristian\\Programando\\2023\\POE\\MiniProyecto3\\Miniproyecto_3\\Mini3\\vista\\caramelo-menta-remolino-representacion-3d_69110-279.png"));
         backGroundPic.setBounds(0,0,670,459);
         panelBackground.add(backGroundPic);
-        
-
         panelBackground.setVisible(true);
         add(panelBackground);
     }
