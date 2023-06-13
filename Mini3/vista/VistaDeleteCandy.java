@@ -34,11 +34,11 @@ public class VistaDeleteCandy extends JFrame{
         //por ahora el add(deleteCandyPanel) se pone aqui para poder visualizar el proceso, luego se cambia de posicion 
         add(deleteCandyPanel);
 
-        JLabel deleteCandLabel = new JLabel( );
-        deleteCandLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        deleteCandLabel.setText("DELETE A CANDY");
-        deleteCandLabel.setBounds(40,10,210,40);
-        deleteCandyPanel.add(deleteCandLabel);
+        JLabel deleteCandyLabel = new JLabel( );
+        deleteCandyLabel.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        deleteCandyLabel.setText("DELETE A CANDY");
+        deleteCandyLabel.setBounds(40,10,210,40);
+        deleteCandyPanel.add(deleteCandyLabel);
 
         JLabel candyNameDelete = new JLabel("Name");
         candyNameDelete.setFont(new Font ("Roboto Medium", 0, 14));
