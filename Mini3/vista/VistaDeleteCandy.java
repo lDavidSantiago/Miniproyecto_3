@@ -29,7 +29,6 @@ public class VistaDeleteCandy extends JFrame{
         deleteCandyPanel.setLayout(null);
         deleteCandyPanel.setSize(430, 300);
         deleteCandyPanel.setBackground(new Color(255, 255, 255));
-        deleteCandyPanel.setFont(new Font("Roboto Light", 0, 12));
         deleteCandyPanel.setBackground(Color.white);
         //por ahora el add(deleteCandyPanel) se pone aqui para poder visualizar el proceso, luego se cambia de posicion 
         add(deleteCandyPanel);

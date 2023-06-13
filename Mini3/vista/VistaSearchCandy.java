@@ -28,7 +28,6 @@ public class VistaSearchCandy extends JFrame{
         searchCandyPanel.setLayout(null);
         searchCandyPanel.setSize(430, 300);
         searchCandyPanel.setBackground(new Color(255, 255, 255));
-        searchCandyPanel.setFont(new Font("Roboto Light", 0, 12));
         searchCandyPanel.setBackground(Color.white);
         //por ahora el add(deleteCandyPanel) se pone aqui para poder visualizar el proceso, luego se cambia de posicion 
         add(searchCandyPanel);

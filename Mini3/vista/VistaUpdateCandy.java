@@ -29,7 +29,6 @@ public class VistaUpdateCandy extends JFrame{
         updateCandyPanel.setLayout(null);
         updateCandyPanel.setSize(430, 400);
         updateCandyPanel.setBackground(new Color(255, 255, 255));
-        updateCandyPanel.setFont(new Font("Roboto Light", 0, 12));
         updateCandyPanel.setBackground(Color.white);
         //por ahora el add(deleteCandyPanel) se pone aqui para poder visualizar el proceso, luego se cambia de posicion 
         add(updateCandyPanel);
