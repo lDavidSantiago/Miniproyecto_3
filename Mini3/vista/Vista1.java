@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import Mini3.controlador.Controlador;
 import Mini3.controlador.Operations;
@@ -24,6 +25,7 @@ public class Vista1 extends JFrame {
         setTitle("Dulceria");
         setSize(670, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         setLayout(null); // Usamos un diseño nulo para posicionar los componentes manualmente
         setResizable(false);
 
@@ -71,7 +73,13 @@ public class Vista1 extends JFrame {
         jTextField1.setFont(new Font("Roboto Light", 0, 12));
         jTextField1.setForeground(new Color(153, 153, 153));
         jTextField1.setBounds(40,285,120,30);
+        jTextField1.setBorder(null);
         panelPrincipal.add(jTextField1);
+
+        JSeparator separator1 = new JSeparator();
+        separator1.setBounds(40,315,120,10);
+        separator1.setForeground(new Color(206,206,206));
+        panelPrincipal.add(separator1);
 
         buttonEnterSecondPanel = new JButton("OK");
         buttonEnterSecondPanel.setForeground(Color.white);

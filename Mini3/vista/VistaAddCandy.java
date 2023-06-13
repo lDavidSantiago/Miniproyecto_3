@@ -17,12 +17,13 @@ public class VistaAddCandy extends JFrame {
         setTitle("Dulceria");
         setSize(670, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         setLayout(null); // Usamos un diseño nulo para posicionar los componentes manualmente
         setResizable(false);
 
-        JPanel panelBackground = new JPanel();
-        panelBackground.setLayout(null);
-        panelBackground.setSize(670, 500);
+        JPanel panelBackground1 = new JPanel();
+        panelBackground1.setLayout(null);
+        panelBackground1.setSize(670, 500);
 
         JPanel addCandyPanel = new JPanel();
         addCandyPanel.setLayout(null);
@@ -81,18 +82,33 @@ public class VistaAddCandy extends JFrame {
         addCandyButton.setBounds(40, 295, 120, 30);
         addCandyPanel.add(addCandyButton);
 
-        
+        JButton backButton = new JButton("BACK");
+        backButton.setForeground(Color.white);
+        backButton.setBackground(new Color(225,59,59));
+        backButton.setBounds(200, 295, 120, 30);
+        addCandyPanel.add(backButton);
 
-        
+        JLabel logo = new JLabel(new ImageIcon("C:\\Cristian\\Programando\\2023\\POE\\MiniProyecto3\\Miniproyecto_3\\Mini3\\vista\\logo1.png"));     
+        logo.setBounds(340, 10, 60, 60);
+        addCandyPanel.add(logo);
 
+        //panel sobre panel
+        addCandyPanel.setVisible(true);
+        panelBackground1.add(addCandyPanel);
+        addCandyPanel.setBounds(135,30,400,400);
+        JLabel backGroundPic1 = new JLabel(new ImageIcon("C:\\Cristian\\Programando\\2023\\POE\\MiniProyecto3\\Miniproyecto_3\\Mini3\\vista\\caramelo-menta-remolino-representacion-3d_69110-279.png"));
+        backGroundPic1.setBounds(0,0,670,459);
+        panelBackground1.add(backGroundPic1);
+        panelBackground1.setVisible(true);
+        add(panelBackground1);
 
-
-
-        
     }
 
     /*public void start(Controlador controlador) {
-        
+        controlador.setOperations(Operations.ADD);
+        buttonAdd.addActionListener(controlador);
+        setTitle("Tienda Dulces");
+        setLocationRelativeTo(null);
     }*/
 
     public static void main(String[] args) {
