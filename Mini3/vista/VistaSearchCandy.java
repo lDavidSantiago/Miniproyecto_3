@@ -1,6 +1,9 @@
 package Mini3.vista;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,6 +15,8 @@ import Mini3.controlador.Controlador;
 import Mini3.controlador.Operations;
 
 public class VistaSearchCandy extends JFrame{
+    static VistaSearchCandy vista5 = new VistaSearchCandy();
+    public static JTextField nameSearchTF;
     public VistaSearchCandy(){
         setTitle("Dulceria");
         setSize(670, 500);
@@ -43,7 +48,7 @@ public class VistaSearchCandy extends JFrame{
         candyNameSearch.setBounds(40, 80, 150, 30);
         searchCandyPanel.add(candyNameSearch);
 
-        JTextField nameSearchTF = new JTextField();
+        nameSearchTF = new JTextField();
         nameSearchTF.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         nameSearchTF.setForeground(new java.awt.Color(153, 153, 153));
         nameSearchTF.setText("Candy´s name you want to search");
@@ -67,6 +72,7 @@ public class VistaSearchCandy extends JFrame{
         backButton4.setForeground(Color.white);
         backButton4.setBackground(new Color(225,59,59));
         backButton4.setBounds(200, 195, 120, 30);
+        botonVolver(backButton4);
         searchCandyPanel.add(backButton4);
 
         JLabel logo = new JLabel(new ImageIcon("C:\\Cristian\\Programando\\2023\\POE\\MiniProyecto3\\Miniproyecto_3\\Mini3\\vista\\logo1.png"));     
@@ -83,6 +89,15 @@ public class VistaSearchCandy extends JFrame{
         panelBackground4.setVisible(true);
         add(panelBackground4);
 
+    }
+    public void botonVolver(JButton boton) {
+        ActionListener d = new ActionListener() {
+            public void actionPerformed(ActionEvent ae){
+                vista5.setVisible(false);
+                Vista1.vista1.setVisible(true);
+            }
+        };
+        boton.addActionListener(d);
     }
     /*public void start(Controlador controlador) {
         controlador.setOperations(Operations.ADD);

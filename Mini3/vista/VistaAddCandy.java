@@ -2,6 +2,9 @@ package Mini3.vista;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +16,11 @@ import Mini3.controlador.Controlador;
 import Mini3.controlador.Operations;
 
 public class VistaAddCandy extends JFrame {
+    static VistaAddCandy vista2 = new VistaAddCandy();
+    public static JTextField nameTF;
+    public static JTextField TypeTF;
+    public static JButton backButton;
+
     public VistaAddCandy(){
         setTitle("Dulceria");
         setSize(670, 500);
@@ -45,7 +53,7 @@ public class VistaAddCandy extends JFrame {
         candyName.setBounds(40, 80, 150, 30);
         addCandyPanel.add(candyName);
 
-        JTextField nameTF = new JTextField();
+        nameTF = new JTextField();
         nameTF.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         nameTF.setForeground(new java.awt.Color(153, 153, 153));
         nameTF.setText("Add a new candy");
@@ -63,7 +71,7 @@ public class VistaAddCandy extends JFrame {
         candyType.setBounds(40, 170, 150, 30);
         addCandyPanel.add(candyType);
 
-        JTextField TypeTF = new JTextField();
+        TypeTF = new JTextField();
         TypeTF.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         TypeTF.setForeground(new java.awt.Color(153, 153, 153));
         TypeTF.setText("Type of candy");
@@ -82,10 +90,11 @@ public class VistaAddCandy extends JFrame {
         addCandyButton.setBounds(40, 295, 120, 30);
         addCandyPanel.add(addCandyButton);
 
-        JButton backButton = new JButton("BACK");
+        backButton = new JButton("BACK");
         backButton.setForeground(Color.white);
         backButton.setBackground(new Color(225,59,59));
         backButton.setBounds(200, 295, 120, 30);
+        botonVolver(backButton);
         addCandyPanel.add(backButton);
 
         JLabel logo = new JLabel(new ImageIcon("C:\\Cristian\\Programando\\2023\\POE\\MiniProyecto3\\Miniproyecto_3\\Mini3\\vista\\logo1.png"));     
@@ -102,6 +111,16 @@ public class VistaAddCandy extends JFrame {
         panelBackground1.setVisible(true);
         add(panelBackground1);
 
+    }
+    public  void botonVolver(JButton boton){
+        ActionListener d = new ActionListener() {
+            public void actionPerformed(ActionEvent ae){
+                vista2.setVisible(false);
+                Vista1.vista1.setVisible(true);
+            }
+        };
+        boton.addActionListener(d);
+        
     }
 
     /*public void start(Controlador controlador) {

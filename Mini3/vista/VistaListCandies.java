@@ -1,6 +1,9 @@
 package Mini3.vista;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,6 +18,8 @@ import Mini3.controlador.Operations;
 
 
 public class VistaListCandies extends JFrame{
+    static VistaListCandies vista6 = new VistaListCandies();
+    public static JTextArea listCandiesTextArea;
     public VistaListCandies(){
         setTitle("Dulceria");
         setSize(670, 500);
@@ -51,7 +56,7 @@ public class VistaListCandies extends JFrame{
         candyTypeList.setBounds(150, 80, 150, 30);
         listCandyPanel.add(candyTypeList);
 
-        JTextArea listCandiesTextArea = new JTextArea(); 
+        listCandiesTextArea = new JTextArea(); 
         listCandiesTextArea.setEditable(false);  
 
         JScrollPane scroll = new JScrollPane(listCandiesTextArea);
@@ -68,6 +73,7 @@ public class VistaListCandies extends JFrame{
         backButton5.setForeground(Color.white);
         backButton5.setBackground(new Color(225,59,59));
         backButton5.setBounds(200, 350, 120, 30);
+        botonVolver(backButton5);
         listCandyPanel.add(backButton5);
 
         JLabel logo = new JLabel(new ImageIcon("C:\\Cristian\\Programando\\2023\\POE\\MiniProyecto3\\Miniproyecto_3\\Mini3\\vista\\logo1.png"));     
@@ -85,6 +91,15 @@ public class VistaListCandies extends JFrame{
         add(panelBackground5);
 
        
+    }
+    public void botonVolver(JButton boton) {
+        ActionListener d = new ActionListener() {
+            public void actionPerformed(ActionEvent ae){
+                vista6.setVisible(false);
+                Vista1.vista1.setVisible(true);
+            }
+        };
+        boton.addActionListener(d);
     }
     /*public void start(Controlador controlador) {
         controlador.setOperations(Operations.ADD);

@@ -1,6 +1,9 @@
 package Mini3.vista;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +16,8 @@ import Mini3.controlador.Operations;
 
 
 public class VistaDeleteCandy extends JFrame{
+    static VistaDeleteCandy vista4 = new VistaDeleteCandy();
+    public static JTextField nameDeleteTF;
     public VistaDeleteCandy(){
         setTitle("Dulceria");
         setSize(670, 500);
@@ -44,7 +49,7 @@ public class VistaDeleteCandy extends JFrame{
         candyNameDelete.setBounds(40, 80, 150, 30);
         deleteCandyPanel.add(candyNameDelete);
 
-        JTextField nameDeleteTF = new JTextField();
+        nameDeleteTF = new JTextField();
         nameDeleteTF.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         nameDeleteTF.setForeground(new java.awt.Color(153, 153, 153));
         nameDeleteTF.setText("Candy´s name you want to delete");
@@ -67,6 +72,7 @@ public class VistaDeleteCandy extends JFrame{
         backButton3.setForeground(Color.white);
         backButton3.setBackground(new Color(225,59,59));
         backButton3.setBounds(200, 195, 120, 30);
+        botonVolver(backButton3);
         deleteCandyPanel.add(backButton3);
 
         JLabel logo = new JLabel(new ImageIcon("C:\\Cristian\\Programando\\2023\\POE\\MiniProyecto3\\Miniproyecto_3\\Mini3\\vista\\logo1.png"));     
@@ -83,6 +89,15 @@ public class VistaDeleteCandy extends JFrame{
         panelBackground3.setVisible(true);
         add(panelBackground3);
 
+    }
+    public void botonVolver(JButton boton) {
+        ActionListener d = new ActionListener() {
+            public void actionPerformed(ActionEvent ae){
+                vista4.setVisible(false);
+                Vista1.vista1.setVisible(true);
+            }
+        };
+        boton.addActionListener(d);
     }
     /*public void start(Controlador controlador) {
         controlador.setOperations(Operations.ADD);

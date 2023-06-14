@@ -2,10 +2,14 @@ package Mini3.vista;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
@@ -13,13 +17,11 @@ import Mini3.controlador.Controlador;
 import Mini3.controlador.Operations;
 
 public class Vista1 extends JFrame {
-    public JTextField textField1;
-    public JTextField textField2;
-    public JTextField textField3;
-    public JTextField textField4;
-    public JButton buttonAdd;
-    public JButton buttonEnterSecondPanel;
+    public static JTextField jTextField1;
+    public static JButton botonFrames;
+    public static int opcionNumerito;
 
+    static Vista1 vista1 = new Vista1();
 
     public Vista1(){
         setTitle("Dulceria");
@@ -69,7 +71,7 @@ public class Vista1 extends JFrame {
         panelPrincipal.add(label6);
 
         //Falta el holder
-        JTextField jTextField1 = new JTextField("Select an option");
+        jTextField1 = new JTextField("Select an option");
         jTextField1.setFont(new Font("Roboto Light", 0, 12));
         jTextField1.setForeground(new Color(153, 153, 153));
         jTextField1.setBounds(40,285,120,30);
@@ -81,11 +83,12 @@ public class Vista1 extends JFrame {
         separator1.setForeground(new Color(206,206,206));
         panelPrincipal.add(separator1);
 
-        buttonEnterSecondPanel = new JButton("OK");
-        buttonEnterSecondPanel.setForeground(Color.white);
-        buttonEnterSecondPanel.setBackground(new Color(225,59,59));
-        buttonEnterSecondPanel.setBounds(180, 285, 120, 30);
-        panelPrincipal.add(buttonEnterSecondPanel);
+        botonFrames = new JButton("OK");
+        botonFrames.setForeground(Color.white);
+        botonFrames.setBackground(new Color(225,59,59));
+        botonFrames.setBounds(180, 285, 120, 30);
+        botonAceptar(botonFrames,panelPrincipal,jTextField1);
+        
 
         JLabel logo = new JLabel(new ImageIcon("C:\\Cristian\\Programando\\2023\\POE\\MiniProyecto3\\Miniproyecto_3\\Mini3\\vista\\logo1.png"));     
         logo.setBounds(340, 10, 60, 60);
@@ -100,6 +103,53 @@ public class Vista1 extends JFrame {
         panelBackground.setVisible(true);
         add(panelBackground);
     }
+    public static void botonAceptar(JButton boton,JPanel panel,JTextField cf){
+        ActionListener al = new ActionListener() {
+            public void actionPerformed(ActionEvent ae){
+                opcionNumerito=Integer.parseInt(cf.getText());
+                seleccionMenuOpciones(opcionNumerito);
+                cf.setText("Select an option");
+            }
+        };
+        boton.addActionListener(al);
+        panel.add(boton);
+        
+    }
+    
+    public static void seleccionMenuOpciones(int opcion){
+        switch (opcion){
+            case 1:
+                Vista1.vista1.setVisible(false);
+                VistaAddCandy.vista2.setVisible(true);
+                break;
+            case 2:
+                Vista1.vista1.setVisible(false);
+                VistaUpdateCandy.vista3.setVisible(true);
+                break;
+            case 3:
+                Vista1.vista1.setVisible(false);
+                VistaDeleteCandy.vista4.setVisible(true);
+                break;
+            case 4:
+                Vista1.vista1.setVisible(false);
+                VistaSearchCandy.vista5.setVisible(true);
+                break;
+            case 5:
+                Vista1.vista1.setVisible(false);
+                VistaListCandies.vista6.setVisible(true);
+                break;
+
+            default:
+                JOptionPane.showMessageDialog(null,"error, ingrese una opcion valida ","ERROR", JOptionPane.ERROR_MESSAGE);
+                break;
+        }
+    }
+
+    public void inicio(JFrame view) {//trabajo con vista1 que es estatico 
+        view.setVisible(false);
+        vista1.setVisible(true);
+
+    }
 
     public void start(Controlador controlador) {
         setTitle("Tienda Dulces");
@@ -110,4 +160,5 @@ public class Vista1 extends JFrame {
         Vista1 frame = new Vista1();
         frame.setVisible(true);
     }
+    
 }
