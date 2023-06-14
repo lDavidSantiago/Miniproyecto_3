@@ -102,8 +102,6 @@ public class Vista1 extends JFrame {
     }
 
     public void start(Controlador controlador) {
-        controlador.setOperations(Operations.ADD);
-        buttonAdd.addActionListener(controlador);
         setTitle("Tienda Dulces");
         setLocationRelativeTo(null);
     }

@@ -134,4 +134,3 @@ public class VistaUpdateCandy extends JFrame{
         frame3.setVisible(true);
     }
 }
-
