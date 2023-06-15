@@ -155,6 +155,7 @@ public class Vista1 extends JFrame {
         VistaDeleteCandy.deleteCandyButton.addActionListener(controlador); 
         VistaListCandies.listCandiesButton.addActionListener(controlador);
         VistaUpdateCandy.updateCandyButton.addActionListener(controlador); 
+        VistaSearchCandy.searchCandyButton.addActionListener(controlador);
         setTitle("Tienda Dulces");
         setLocationRelativeTo(null);
         
