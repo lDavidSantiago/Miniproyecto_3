@@ -7,6 +7,6 @@ public interface DulceriaVista {
     public void inicio(Controlador controlador);
     public String getName();
     public String getType();
-    public void setDulce(String resultado);
+    public void setDulce();
     
 }

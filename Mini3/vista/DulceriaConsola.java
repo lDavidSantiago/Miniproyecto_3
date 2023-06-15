@@ -54,19 +54,16 @@ public class DulceriaConsola implements DulceriaVista{
         }
     }
 
-    @Override
     public String getName() {
         return nombre;
     }
 
-    @Override
     public String getType() {
         return tipo;
     }
 
-    @Override
-    public void setDulce(String resultado) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setDulce'");
+    public void setDulce() {
+        System.out.println("El nombre del dulce es: "+ getType());
+
     }
 }
