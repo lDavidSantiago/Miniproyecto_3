@@ -2,6 +2,8 @@ package Mini3.modelo;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class ModeloCandy {
     private String candyName;
     private String candyType;
@@ -71,30 +73,31 @@ public class ModeloCandy {
     public  void addCandy(String candyName, String candyType) {
         ModeloCandy dulce = new ModeloCandy(candyName, candyType);
         arrayDulces.add(dulce);
+        System.out.println(candyName + candyType);
         
         }
     
-    public  void removeCandy(String candyName, String candyType) {
+    public  void removeCandy(String candyName) {
         ModeloCandy candyToRemove = null;
         for(ModeloCandy dulce : arrayDulces) {
-            if(dulce.getCandyName().equals(candyName) && dulce.getCandyType().equals(candyType)){
+            if(dulce.getCandyName().equals(candyName)){
                 candyToRemove = dulce;
                 break;
             }
         }
         if(candyToRemove != null){
             arrayDulces.remove(candyToRemove);
-            System.out.println("Dulce elimnado: " + candyToRemove.getCandyName()+","+candyToRemove.getCandyType());
+            System.out.println("Dulce elimnado: " + candyToRemove.getCandyName());
         }
         else{
-            System.out.println("No se encontro ningun dulce "+ candyName +","+ candyType);
+            System.out.println("No se encontro ningun dulce "+ candyName);
         }
     }
 
-    public String updateCandy(String candyName, String candyType, String newCandyName, String newCandyType){
+    public String updateCandy(String candyName, String newCandyName, String newCandyType){
         ModeloCandy candyToUpdate = null;
         for(ModeloCandy dulce : arrayDulces){
-            if(dulce.getCandyName().equals(candyName)&& dulce.getCandyName().equals(candyType)){
+            if(dulce.getCandyName().equals(candyName)){
                 candyToUpdate = dulce;
                 break;
             }
@@ -102,10 +105,10 @@ public class ModeloCandy {
         if(candyToUpdate != null){
             candyToUpdate.setCandyName(newCandyName);
             candyToUpdate.setCandyType(newCandyType);
-            return "Dulce Actualizado: " + candyName + ","+candyType+ "ahora es "+ newCandyName +"," + newCandyType;
+            return "Dulce Actualizado: " + candyName + "ahora es "+ newCandyName +"," + newCandyType;
         }
         else{
-            return "No se encontro ningun dulce " + candyName + "," + candyType;
+            return "No se encontro ningun dulce " + candyName;
         }   
     }
 
@@ -121,6 +124,7 @@ public class ModeloCandy {
 
     public String searchCandy(String candyName, String candyType){
         ModeloCandy candyFinded = null;
+        //AQUI SE ESTAN SUMANDO LAS POSICIONES DE UNA, HAY QUE HACER UN ATRIBUTO O ALGO SIMILAR
         int i = 0;
         for(ModeloCandy dulce : arrayDulces){
             if(dulce.getCandyName().equals(candyName)&& dulce.getCandyType().equals(candyType)){
@@ -130,7 +134,12 @@ public class ModeloCandy {
         i++;
             }
         if(candyFinded !=null){
-            return "Su dulce es: " + candyFinded.getCandyName() + candyFinded.getCandyType() + "Y esta en la posicion " + i;
+            System.out.println("Su dulce es: " + candyFinded.getCandyName() +","+ candyFinded.getCandyType() + " y esta en la posicion " + i);
+
+            JOptionPane.showMessageDialog(null, "Su dulce es: " + candyFinded.getCandyName() +","+ candyFinded.getCandyType() + " y esta en la posicion " + i);
+
+            return " ";
+
         }
         else{
             return "No se pudo encontrar su dulce o no existe :C";

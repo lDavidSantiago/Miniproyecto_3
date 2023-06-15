@@ -1,6 +1,9 @@
 package Mini3.vista;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +16,12 @@ import Mini3.controlador.Operations;
 
 
 public class VistaUpdateCandy extends JFrame{
+    static VistaUpdateCandy vista3 = new VistaUpdateCandy();
+    public static JTextField oldNameTF;
+    public static JTextField newNameTF;
+    public static JTextField newTypeTF;
+    public static JButton updateCandyButton;
+    public static JLabel candyOldName;
     public VistaUpdateCandy(){
         setTitle("Dulceria");
         setSize(670, 500);
@@ -39,12 +48,12 @@ public class VistaUpdateCandy extends JFrame{
         updateCandLabel.setBounds(40,10,210,40);
         updateCandyPanel.add(updateCandLabel);
 
-        JLabel candyOldName = new JLabel("Name");
+       candyOldName = new JLabel("Name");
         candyOldName.setFont(new Font ("Roboto Medium", 0, 14));
         candyOldName.setBounds(40, 80, 150, 30);
         updateCandyPanel.add(candyOldName);
 
-        JTextField oldNameTF = new JTextField();
+        oldNameTF = new JTextField();
         oldNameTF.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         oldNameTF.setForeground(new java.awt.Color(153, 153, 153));
         oldNameTF.setText("Candy´s old name");
@@ -62,7 +71,7 @@ public class VistaUpdateCandy extends JFrame{
         candyNewName.setBounds(40, 175, 150, 30);
         updateCandyPanel.add(candyNewName);
 
-        JTextField newNameTF = new JTextField();
+        newNameTF = new JTextField();
         newNameTF.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         newNameTF.setForeground(new java.awt.Color(153, 153, 153));
         newNameTF.setText("Candy´s new name");
@@ -82,7 +91,7 @@ public class VistaUpdateCandy extends JFrame{
         candyNewType.setBounds(40, 265, 150, 30);
         updateCandyPanel.add(candyNewType);
 
-        JTextField newTypeTF = new JTextField();
+        newTypeTF = new JTextField();
         newTypeTF.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         newTypeTF.setForeground(new java.awt.Color(153, 153, 153));
         newTypeTF.setText("Candy´s new type");
@@ -96,7 +105,7 @@ public class VistaUpdateCandy extends JFrame{
         updateCandyPanel.add(separator5);
         
 
-        JButton updateCandyButton = new JButton("UPDATE");
+        updateCandyButton = new JButton("UPDATE");
         updateCandyButton.setForeground(Color.white);
         updateCandyButton.setBackground(new Color(225,59,59));
         updateCandyButton.setBounds(40, 355, 120, 30);
@@ -106,6 +115,7 @@ public class VistaUpdateCandy extends JFrame{
         backButton3.setForeground(Color.white);
         backButton3.setBackground(new Color(225,59,59));
         backButton3.setBounds(200, 355, 120, 30);
+        botonVolver(backButton3);
         updateCandyPanel.add(backButton3); 
 
         JLabel logo = new JLabel(new ImageIcon("C:\\Cristian\\Programando\\2023\\POE\\MiniProyecto3\\Miniproyecto_3\\Mini3\\vista\\logo1.png"));     
@@ -123,6 +133,25 @@ public class VistaUpdateCandy extends JFrame{
         add(panelBackground2);
 
     }
+    public void botonVolver(JButton boton) {
+        ActionListener d = new ActionListener() {
+            public void actionPerformed(ActionEvent ae){
+                vista3.setVisible(false);
+                Vista1.vista1.setVisible(true);
+            }
+        };
+        boton.addActionListener(d);
+    }
+    public static String getNewCandyName(){
+        return newNameTF.getText();
+    }
+    public static String getOldCandyName(){
+        return oldNameTF.getText();
+    }
+    public static String getNewCandyType(){
+        return newTypeTF.getText();
+    }
+
     /*public void start(Controlador controlador) {
         controlador.setOperations(Operations.ADD);
         buttonAdd.addActionListener(controlador);
@@ -134,4 +163,3 @@ public class VistaUpdateCandy extends JFrame{
         frame3.setVisible(true);
     }
 }
-

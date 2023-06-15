@@ -2,6 +2,9 @@ package Mini3.vista;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,10 +12,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
+
 import Mini3.controlador.Controlador;
 import Mini3.controlador.Operations;
 
 public class VistaAddCandy extends JFrame {
+    static VistaAddCandy vista2 = new VistaAddCandy();
+    public static JTextField nameTF;
+    public static JTextField typeTF;
+    public static JButton backButton;
+    public static JButton addCandyButton;
     public VistaAddCandy(){
         setTitle("Dulceria");
         setSize(670, 500);
@@ -45,10 +54,10 @@ public class VistaAddCandy extends JFrame {
         candyName.setBounds(40, 80, 150, 30);
         addCandyPanel.add(candyName);
 
-        JTextField nameTF = new JTextField();
+        nameTF = new JTextField();
+        TextPrompt nameTF_ = new TextPrompt("Type candy name",nameTF);
         nameTF.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         nameTF.setForeground(new java.awt.Color(153, 153, 153));
-        nameTF.setText("Add a new candy");
         nameTF.setBounds(40,115,250,20);
         nameTF.setBorder(null);
         addCandyPanel.add(nameTF);
@@ -63,29 +72,30 @@ public class VistaAddCandy extends JFrame {
         candyType.setBounds(40, 170, 150, 30);
         addCandyPanel.add(candyType);
 
-        JTextField TypeTF = new JTextField();
-        TypeTF.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
-        TypeTF.setForeground(new java.awt.Color(153, 153, 153));
-        TypeTF.setText("Type of candy");
-        TypeTF.setBounds(40,205,250,20);
-        TypeTF.setBorder(null);
-        addCandyPanel.add(TypeTF);
+        typeTF = new JTextField();
+        typeTF.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
+        typeTF.setForeground(new java.awt.Color(153, 153, 153));
+        TextPrompt TypeTF_ = new TextPrompt("Candy Type",typeTF);
+        typeTF.setBounds(40,205,250,20);
+        typeTF.setBorder(null);
+        addCandyPanel.add(typeTF);
 
         JSeparator separator2 = new JSeparator();
         separator2.setBounds(40,225,250,10);
         separator2.setForeground(new Color(206,206,206));
         addCandyPanel.add(separator2);
 
-        JButton addCandyButton = new JButton("ADD");
+        addCandyButton = new JButton("ADD");
         addCandyButton.setForeground(Color.white);
         addCandyButton.setBackground(new Color(225,59,59));
         addCandyButton.setBounds(40, 295, 120, 30);
         addCandyPanel.add(addCandyButton);
 
-        JButton backButton = new JButton("BACK");
+        backButton = new JButton("BACK");
         backButton.setForeground(Color.white);
         backButton.setBackground(new Color(225,59,59));
         backButton.setBounds(200, 295, 120, 30);
+        botonVolver(backButton);
         addCandyPanel.add(backButton);
 
         JLabel logo = new JLabel(new ImageIcon("C:\\Cristian\\Programando\\2023\\POE\\MiniProyecto3\\Miniproyecto_3\\Mini3\\vista\\logo1.png"));     
@@ -103,16 +113,31 @@ public class VistaAddCandy extends JFrame {
         add(panelBackground1);
 
     }
-
-    /*public void start(Controlador controlador) {
-        controlador.setOperations(Operations.ADD);
-        buttonAdd.addActionListener(controlador);
+    public  void botonVolver(JButton boton){
+        ActionListener d = new ActionListener() {
+            public void actionPerformed(ActionEvent ae){
+                vista2.setVisible(false);
+                Vista1.vista1.setVisible(true);
+            }
+        };
+        boton.addActionListener(d);
+        
+    }
+    
+    public void start(Controlador controlador) {
         setTitle("Tienda Dulces");
         setLocationRelativeTo(null);
-    }*/
+    }
 
     public static void main(String[] args) {
         VistaAddCandy frame2 = new VistaAddCandy();
         frame2.setVisible(true);
     }
+    public static String getCandyName() {
+        return nameTF.getText();
+    }
+    public static String getCandyType(){
+        return typeTF.getText();
+    }
+
 }
