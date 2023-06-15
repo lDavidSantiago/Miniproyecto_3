@@ -8,10 +8,11 @@ import Mini3.vista.VistaDeleteCandy;
 import Mini3.vista.VistaListCandies;
 import Mini3.vista.VistaUpdateCandy;
 import Mini3.vista.VistaSearchCandy;
+import Mini3.vista.DulceriaVista;
 
 public class Controlador implements ActionListener{
 
-    private Vista1 view;
+    private DulceriaVista view;
     private ModeloCandy model;
     private Operations operations;
     
@@ -21,7 +22,7 @@ public class Controlador implements ActionListener{
     public void setOperations(Operations operations) {
         this.operations = operations;
     }
-    public Controlador(Vista1 view, ModeloCandy model) {
+    public Controlador(DulceriaVista view, ModeloCandy model) {
         this.view = view;
         this.model = model;
     }

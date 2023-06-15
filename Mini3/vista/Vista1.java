@@ -15,10 +15,10 @@ import javax.swing.JTextField;
 import Mini3.controlador.Controlador;
 import Mini3.controlador.Operations;
 
-public class Vista1 extends JFrame {
+public class Vista1 extends JFrame implements DulceriaVista{
     public static JTextField jTextField1;
     public static JButton botonFrames;
-    public static int opcionNumerito;
+    public static String opcionNumerito;
     static Vista1 vista1 = new Vista1();
 
     public Vista1(){
@@ -105,7 +105,7 @@ public class Vista1 extends JFrame {
     public static void botonAceptar(JButton boton,JPanel panel,JTextField cf){
         ActionListener al = new ActionListener() {
             public void actionPerformed(ActionEvent ae){
-                opcionNumerito=Integer.parseInt(cf.getText());
+                opcionNumerito=(cf.getText());
                 seleccionMenuOpciones(opcionNumerito);
                 cf.setText("");
             }
@@ -115,25 +115,25 @@ public class Vista1 extends JFrame {
         
     }
     
-    public static void seleccionMenuOpciones(int opcion){
+    public static void seleccionMenuOpciones(String opcion){
         switch (opcion){
-            case 1:
+            case "1":
                 Vista1.vista1.setVisible(false);
                 VistaAddCandy.vista2.setVisible(true);
                 break;
-            case 2:
+            case "2":
                 Vista1.vista1.setVisible(false);
                 VistaUpdateCandy.vista3.setVisible(true);
                 break;
-            case 3:
+            case "3":
                 Vista1.vista1.setVisible(false);
                 VistaDeleteCandy.vista4.setVisible(true);
                 break;
-            case 4:
+            case "4":
                 Vista1.vista1.setVisible(false);
                 VistaSearchCandy.vista5.setVisible(true);
                 break;
-            case 5:
+            case "5":
                 Vista1.vista1.setVisible(false);
                 VistaListCandies.vista6.setVisible(true);
                 break;
@@ -158,6 +158,7 @@ public class Vista1 extends JFrame {
         VistaSearchCandy.searchCandyButton.addActionListener(controlador);
         setTitle("Tienda Dulces");
         setLocationRelativeTo(null);
+        vista1.setVisible(true);
         
     }
     

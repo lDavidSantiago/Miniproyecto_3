@@ -9,18 +9,10 @@ public class ModeloCandy {
     private String candyType;
     private String newCandyName;
     private String newCandyType;
-    private String text_;
     
     private static ArrayList<ModeloCandy> arrayDulces = new ArrayList<>();
 
     
-    public String getText_() {
-        return text_;
-    }
-
-    public void setText_(String text_) {
-        this.text_ = text_;
-    }
     public ModeloCandy() {
     }
 
