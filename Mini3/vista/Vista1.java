@@ -1,10 +1,9 @@
 package Mini3.vista;
-
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,7 +19,6 @@ public class Vista1 extends JFrame {
     public static JTextField jTextField1;
     public static JButton botonFrames;
     public static int opcionNumerito;
-
     static Vista1 vista1 = new Vista1();
 
     public Vista1(){
@@ -71,7 +69,8 @@ public class Vista1 extends JFrame {
         panelPrincipal.add(label6);
 
         //Falta el holder
-        jTextField1 = new JTextField("Select an option");
+        jTextField1 = new JTextField();
+        TextPrompt holderMain = new TextPrompt("Ingrese una opcion",jTextField1);
         jTextField1.setFont(new Font("Roboto Light", 0, 12));
         jTextField1.setForeground(new Color(153, 153, 153));
         jTextField1.setBounds(40,285,120,30);
@@ -108,7 +107,7 @@ public class Vista1 extends JFrame {
             public void actionPerformed(ActionEvent ae){
                 opcionNumerito=Integer.parseInt(cf.getText());
                 seleccionMenuOpciones(opcionNumerito);
-                cf.setText("Select an option");
+                cf.setText("");
             }
         };
         boton.addActionListener(al);
@@ -152,10 +151,41 @@ public class Vista1 extends JFrame {
     }
 
     public void start(Controlador controlador) {
+        VistaAddCandy.addCandyButton.addActionListener(controlador);
+        VistaDeleteCandy.deleteCandyButton.addActionListener(controlador); 
+        VistaListCandies.listCandiesButton.addActionListener(controlador);
+        VistaUpdateCandy.updateCandyButton.addActionListener(controlador); 
         setTitle("Tienda Dulces");
         setLocationRelativeTo(null);
+        
+    }
+    
+    public void actionPerformed(ActionEvent press){
+
+    }
+    
+    public String getCandyNametoDelete(){
+        return VistaDeleteCandy.getCandyName();
+    }
+    public String getCandyName(){
+        return VistaAddCandy.getCandyName();
     }
 
+    public String getCandyType(){
+        return VistaAddCandy.getCandyType();
+    }
+    public void setList(String lista){
+        VistaListCandies.listCandiesTextArea.setText(lista);
+    }
+    public String getNewCandyName(){
+        return VistaUpdateCandy.getNewCandyName();
+    }
+    public String getOldCandyName(){
+        return VistaUpdateCandy.getOldCandyName();
+    }
+    public String getNewCandyType(){
+        return VistaUpdateCandy.getNewCandyType();
+    }
     public static void main(String[] args) {
         Vista1 frame = new Vista1();
         frame.setVisible(true);

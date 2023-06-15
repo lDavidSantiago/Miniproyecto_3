@@ -20,6 +20,7 @@ import Mini3.controlador.Operations;
 public class VistaListCandies extends JFrame{
     static VistaListCandies vista6 = new VistaListCandies();
     public static JTextArea listCandiesTextArea;
+    public static JButton listCandiesButton;
     public VistaListCandies(){
         setTitle("Dulceria");
         setSize(670, 500);
@@ -57,13 +58,14 @@ public class VistaListCandies extends JFrame{
         listCandyPanel.add(candyTypeList);
 
         listCandiesTextArea = new JTextArea(); 
-        listCandiesTextArea.setEditable(false);  
+        listCandiesTextArea.setEditable(false); 
+        
 
         JScrollPane scroll = new JScrollPane(listCandiesTextArea);
         scroll.setBounds(40,115,150,200);
         listCandyPanel.add(scroll);
 
-        JButton listCandiesButton = new JButton("UPDATE");
+        listCandiesButton = new JButton("UPDATE");
         listCandiesButton.setForeground(Color.white);
         listCandiesButton.setBackground(new Color(225,59,59));
         listCandiesButton.setBounds(40, 350, 120, 30);
@@ -101,6 +103,11 @@ public class VistaListCandies extends JFrame{
         };
         boton.addActionListener(d);
     }
+
+
+
+
+
     /*public void start(Controlador controlador) {
         controlador.setOperations(Operations.ADD);
         buttonAdd.addActionListener(controlador);

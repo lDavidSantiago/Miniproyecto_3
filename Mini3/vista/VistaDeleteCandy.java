@@ -15,9 +15,10 @@ import Mini3.controlador.Controlador;
 import Mini3.controlador.Operations;
 
 
-public class VistaDeleteCandy extends JFrame{
+public class VistaDeleteCandy extends JFrame {
     static VistaDeleteCandy vista4 = new VistaDeleteCandy();
     public static JTextField nameDeleteTF;
+    public static JButton deleteCandyButton;
     public VistaDeleteCandy(){
         setTitle("Dulceria");
         setSize(670, 500);
@@ -62,7 +63,7 @@ public class VistaDeleteCandy extends JFrame{
         separator6.setForeground(new Color(206,206,206));
         deleteCandyPanel.add(separator6);
 
-        JButton deleteCandyButton = new JButton("DELETE");
+        deleteCandyButton = new JButton("DELETE");
         deleteCandyButton.setForeground(Color.white);
         deleteCandyButton.setBackground(new Color(225,59,59));
         deleteCandyButton.setBounds(40, 195, 120, 30);
@@ -98,6 +99,10 @@ public class VistaDeleteCandy extends JFrame{
             }
         };
         boton.addActionListener(d);
+    }
+
+    public static String getCandyName(){
+        return nameDeleteTF.getText();
     }
     /*public void start(Controlador controlador) {
         controlador.setOperations(Operations.ADD);

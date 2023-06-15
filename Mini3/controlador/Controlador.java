@@ -3,6 +3,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Mini3.modelo.ModeloCandy;
 import Mini3.vista.Vista1;
+import Mini3.vista.VistaAddCandy;
+import Mini3.vista.VistaDeleteCandy;
+import Mini3.vista.VistaListCandies;
+import Mini3.vista.VistaUpdateCandy;
 
 public class Controlador implements ActionListener{
 
@@ -16,7 +20,6 @@ public class Controlador implements ActionListener{
     public void setOperations(Operations operations) {
         this.operations = operations;
     }
-
     public Controlador(Vista1 view, ModeloCandy model) {
         this.view = view;
         this.model = model;
@@ -26,23 +29,31 @@ public class Controlador implements ActionListener{
     }
    
     public void actionPerformed(ActionEvent e) {
-        switch (operations){
-            case ADD:
-            model.addCandy((view.textField1.getText()),(view.textField2.getText()));
-            view.textField3.setText(model.listCandies());
-            case UPDATE:
-            break;
-            case REMOVE:
-            break;
-            case SEARCH:
-            break;
-            case LIST:
-            break;
-            
-            default:
-                break;
+    if(e.getSource() == VistaAddCandy.addCandyButton || operations == Operations.ADD){
+        model.setCandyName(view.getCandyName());
+        model.setCandyType(view.getCandyType());
+        model.addCandy((model.getCandyName()),(model.getCandyType()));
+        System.out.println(model.listCandies());}
+    if(e.getSource() == VistaDeleteCandy.deleteCandyButton || operations == Operations.REMOVE){
+        model.setCandyName(view.getCandyNametoDelete());
+        model.removeCandy(model.getCandyName());
+        System.out.println("FUNCIONO");
         }
-        
+    if(e.getSource() == VistaListCandies.listCandiesButton || operations == Operations.LIST){
+        view.setList(model.listCandies());
+        System.out.println("aaaa");
+        }
+    if(e.getSource() == VistaUpdateCandy.updateCandyButton || operations == Operations.UPDATE){
+        model.updateCandy(view.getOldCandyName(),view.getNewCandyName(),view.getNewCandyType());
+        System.out.println("waza");
+        }
     }
+    
 }
+    
+
+    
+    
+    
+
 

@@ -20,6 +20,8 @@ public class VistaUpdateCandy extends JFrame{
     public static JTextField oldNameTF;
     public static JTextField newNameTF;
     public static JTextField newTypeTF;
+    public static JButton updateCandyButton;
+    public static JLabel candyOldName;
     public VistaUpdateCandy(){
         setTitle("Dulceria");
         setSize(670, 500);
@@ -46,7 +48,7 @@ public class VistaUpdateCandy extends JFrame{
         updateCandLabel.setBounds(40,10,210,40);
         updateCandyPanel.add(updateCandLabel);
 
-        JLabel candyOldName = new JLabel("Name");
+       candyOldName = new JLabel("Name");
         candyOldName.setFont(new Font ("Roboto Medium", 0, 14));
         candyOldName.setBounds(40, 80, 150, 30);
         updateCandyPanel.add(candyOldName);
@@ -103,7 +105,7 @@ public class VistaUpdateCandy extends JFrame{
         updateCandyPanel.add(separator5);
         
 
-        JButton updateCandyButton = new JButton("UPDATE");
+        updateCandyButton = new JButton("UPDATE");
         updateCandyButton.setForeground(Color.white);
         updateCandyButton.setBackground(new Color(225,59,59));
         updateCandyButton.setBounds(40, 355, 120, 30);
@@ -140,6 +142,16 @@ public class VistaUpdateCandy extends JFrame{
         };
         boton.addActionListener(d);
     }
+    public static String getNewCandyName(){
+        return newNameTF.getText();
+    }
+    public static String getOldCandyName(){
+        return oldNameTF.getText();
+    }
+    public static String getNewCandyType(){
+        return newTypeTF.getText();
+    }
+
     /*public void start(Controlador controlador) {
         controlador.setOperations(Operations.ADD);
         buttonAdd.addActionListener(controlador);
