@@ -192,5 +192,26 @@ public class Vista1 extends JFrame implements DulceriaVista{
         Vista1 frame = new Vista1();
         frame.setVisible(true);
     }
+    @Override
+    public void addCandy(String candyName, String candyType) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addCandy'");
+    }
+    @Override
+    public void removeCandy(String candyName) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'removeCandy'");
+    }
+    @Override
+    public String searchCandy(String candyName, String candyType) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'searchCandy'");
+    }
+    @Override
+    public String listCandies() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'listCandies'");
+    }
+
     
 }

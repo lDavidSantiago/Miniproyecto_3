@@ -2,6 +2,7 @@ package Mini3.vista;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.sound.sampled.SourceDataLine;
 
 import Mini3.controlador.Controlador;
 import Mini3.controlador.Operations;
@@ -43,6 +44,13 @@ public class DulceriaConsola implements DulceriaVista{
                     controlador.setOperations(Operations.ADD);
                     break;
                 case "2":
+                    System.out.print("Digite el nombre del dulce: ");
+                    candyName = scanner.nextLine();
+                    System.out.print("Digite el nuevo nombre del dulce: ");
+                    newCandyName = scanner.nextLine();
+                    System.out.print("Digite el nuevo tipo del dulce: ");
+                    newCandyType = scanner.nextLine();
+                    updateCandy(candyName, newCandyName, newCandyType);
                     controlador.setOperations(Operations.UPDATE);
                     break;
                 case "3":
@@ -52,9 +60,15 @@ public class DulceriaConsola implements DulceriaVista{
                     controlador.setOperations(Operations.REMOVE);
                     break;
                 case "4":
+                    System.out.print("Digite el nombre del dulce que desea buscar: ");
+                    candyName = scanner.nextLine();
+                    System.out.print("Ahora, digite de que tipo es el dulce: ");
+                    candyType = scanner.nextLine();
+                    searchCandy(candyName, candyType);
                     controlador.setOperations(Operations.SEARCH);
                     break;
                 case "5":
+                    listCandies();
                     controlador.setOperations(Operations.LIST);
                     break;
                 case "6":
@@ -135,6 +149,62 @@ public class DulceriaConsola implements DulceriaVista{
         else{
             System.out.println("No se encontro ningun dulce "+ candyName);
         }
-    }    
+    }
+
+
+    @Override
+    public String searchCandy(String candyName, String candyType) {
+        ModeloCandy candyFinded = null;
+        //AQUI SE ESTAN SUMANDO LAS POSICIONES DE UNA, HAY QUE HACER UN ATRIBUTO O ALGO SIMILAR
+        int i = 0;
+        for(ModeloCandy dulce : arrayDulces){
+            if(dulce.getCandyName().equals(candyName)&& dulce.getCandyType().equals(candyType)){
+                candyFinded = dulce;
+                break;
+                }
+        i++;
+        }
+        if(candyFinded !=null){
+            System.out.println("Su dulce es: " + candyFinded.getCandyName() +","+ candyFinded.getCandyType() + " y esta en la posicion " + i);
+            return " ";
+        }
+        else{
+            System.out.println("No se pudo encontrar su dulce o no existe :C");
+            return " ";
+        } 
+    }
+    
+    public String listCandies() {
+    StringBuilder result = new StringBuilder();  
+    
+    for (int i = 0 ; i < arrayDulces.size() ; i++) { 
+        System.out.println("\n---Imprimiento la lista de dulces---");
+        System.out.println("____________________________________");
+        System.out.println("Nombre Dulce: " + arrayDulces.get(i).getCandyName() + "\nTipo Dulce:" + arrayDulces.get(i).getCandyType());
+        System.out.println("____________________________________");
+        //result.append("Nombre: ").append(arrayDulces.get(i).getCandyName()).append(", Tipo: ").append(arrayDulces.get(i).getCandyType()).append("\n");
+    }
+    
+    return result.toString();
+    }
+    public String updateCandy(String candyName, String newCandyName, String newCandyType){
+        ModeloCandy candyToUpdate = null;
+        for(ModeloCandy dulce : arrayDulces){
+            if(dulce.getCandyName().equals(candyName)){
+                candyToUpdate = dulce;
+                break;
+            }
+        }
+        if(candyToUpdate != null){
+            candyToUpdate.setCandyName(newCandyName);
+            candyToUpdate.setCandyType(newCandyType);
+            System.out.println("Dulce Actualizado: " + candyName + "ahora es "+ newCandyName +"," + newCandyType);
+            return " ";
+        }
+        else{
+            System.out.println("No se encontro ningun dulce " + candyName);
+            return " ";
+        }   
+    }
 }
 

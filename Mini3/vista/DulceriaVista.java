@@ -25,5 +25,11 @@ public interface DulceriaVista {
 
     public  void removeCandy(String candyName);
 
+    public String searchCandy(String candyName, String candyType);
+
+    public String listCandies();
+
+    public String updateCandy(String candyName, String newCandyName, String newCandyType);
+
     
 }
