@@ -14,13 +14,18 @@ public class DulceriaConsola implements DulceriaVista{
 
     String candyName,candyType,newCandyName,newCandyType;
     Controlador controlador;
-    Scanner scanner = new Scanner(System.in);
+    Scanner input = new Scanner(System.in);
+    public void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
     
 
     public void start(Controlador controlador){
         boolean continuar = true;
         this.controlador = controlador;
         while(continuar){
+            clearScreen();
             System.out.println("--------------------");
             System.out.println("---  Bienvenido  ---");
             System.out.println("--------------------");
@@ -32,38 +37,38 @@ public class DulceriaConsola implements DulceriaVista{
             System.out.println("5) List candies");
             System.out.println("6) Salir");
             System.out.print("Digite la opcion deseada: ");
-            String opcion = scanner.nextLine();
+            String opcion = input.nextLine();
 
             switch(opcion){
                 case "1":
                     System.out.print("Digite el nombre del dulce: ");
-                    candyName = scanner.nextLine();
+                    candyName = input.nextLine();
                     System.out.print("Digite el tipo de dulce: ");
-                    candyType = scanner.nextLine();
+                    candyType = input.nextLine();
                     addCandy(candyName, candyType);
                     controlador.setOperations(Operations.ADD);
                     break;
                 case "2":
                     System.out.print("Digite el nombre del dulce: ");
-                    candyName = scanner.nextLine();
+                    candyName = input.nextLine();
                     System.out.print("Digite el nuevo nombre del dulce: ");
-                    newCandyName = scanner.nextLine();
+                    newCandyName = input.nextLine();
                     System.out.print("Digite el nuevo tipo del dulce: ");
-                    newCandyType = scanner.nextLine();
+                    newCandyType = input.nextLine();
                     updateCandy(candyName, newCandyName, newCandyType);
                     controlador.setOperations(Operations.UPDATE);
                     break;
                 case "3":
                     System.out.print("Digite el nombre del dulce que desea eliminar: ");
-                    candyName = scanner.nextLine();
+                    candyName = input.nextLine();
                     removeCandy(candyName);
                     controlador.setOperations(Operations.REMOVE);
                     break;
                 case "4":
                     System.out.print("Digite el nombre del dulce que desea buscar: ");
-                    candyName = scanner.nextLine();
+                    candyName = input.nextLine();
                     System.out.print("Ahora, digite de que tipo es el dulce: ");
-                    candyType = scanner.nextLine();
+                    candyType = input.nextLine();
                     searchCandy(candyName, candyType);
                     controlador.setOperations(Operations.SEARCH);
                     break;
@@ -76,8 +81,8 @@ public class DulceriaConsola implements DulceriaVista{
                     continue;
                 default:
                     System.out.println("No creo que este numero este dentro de las opciones...");
-                
             }
+            input.nextLine();
 
         }
     }
@@ -129,7 +134,7 @@ public class DulceriaConsola implements DulceriaVista{
     public void addCandy(String candyName, String candyType) {
         ModeloCandy dulce = new ModeloCandy(candyName, candyType);
         arrayDulces.add(dulce);
-        System.out.println(candyName + candyType);
+        System.out.println("Nombre Dulce Agregado:" + candyName +"---Tipo Dulce Agregado: " + candyType);
     }
 
 
